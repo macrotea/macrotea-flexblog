@@ -17,6 +17,7 @@
 	<name>flexblog-swf</name>
 
 	<build>
+		<finalName>main</finalName>
 		<sourceDirectory>src/main/flex</sourceDirectory>
 		<testSourceDirectory>src/test/flex</testSourceDirectory>
 		<plugins>
@@ -27,17 +28,25 @@
 				<extensions>true</extensions>
 				<configuration>
 					<optimize>true</optimize>
-					<finalName>Main</finalName>
-				 	<sourceFile>./Main.mxml</sourceFile>
+					<debug>true</debug>
 					<locales>
 						<locale>${flexmojos.locale}</locale>
 					</locales>
-					<debug>true</debug>
 					<!-- 关闭缺乏构造函数的警告 -->
 					<compilerWarnings>
 						<warn-no-constructor>false</warn-no-constructor>
 					</compilerWarnings>
+					<htmlName>main</htmlName>
+				 	<sourceFile>./Main.mxml</sourceFile>
+					<outputDirectory>${basedir}/../flexblog-war/src/main/webapp/flex</outputDirectory>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>wrapper</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
